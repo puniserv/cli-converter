@@ -1,0 +1,26 @@
+# ATOM Feed to CSV converter
+Line coverage: 94.55%
+Converter use symfony DI, symfony console application and GuzzleHTTP
+
+### How to use
+
+Transform feed http link into csv file and overwrite existing file
+> php bin/console.php csv:simple SOURCE_URL PATH_TO_SAVE
+
+Transform feed http link into csv file and extend existing file
+> php bin/console.php csv:extended SOURCE_URL PATH_TO_SAVE
+
+### Installation
+PHP7.1 Required with libxml, simplexml, json extensions
+
+```sh
+$ composer require puniserv/cli-converter
+```
+
+### Available test commands in composer
+```sh
+$ composer phpunit
+$ composer test
+$ composer testCoverageWithHtml
+$ composer testCoverage
+```
