@@ -1,6 +1,8 @@
 # ATOM Feed to CSV converter
 
-Converter use symfony DI, symfony console application and GuzzleHTTP
+Converter use symfony DI, symfony console application and GuzzleHTTP.  
+Feed month in pubDate column will be translated by system to locale set in converter configuration.  
+ 
 
 ### How to use
 

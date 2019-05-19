@@ -4,9 +4,7 @@ declare(strict_types=1);
 namespace AdamDmitruczukRekrutacjaHRTec\Content;
 
 use AdamDmitruczukRekrutacjaHRTec\Exception\FileAlreadyExists;
-use AdamDmitruczukRekrutacjaHRTec\Exception\FileIsLocked;
 use AdamDmitruczukRekrutacjaHRTec\Exception\FileIsNotWritable;
-use AdamDmitruczukRekrutacjaHRTec\Exception\WarningException;
 
 abstract class Content
 {
