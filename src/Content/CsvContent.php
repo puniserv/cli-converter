@@ -45,7 +45,7 @@ class CsvContent extends Content
 
     private function getStream()
     {
-        return $this->stream ?? $this->stream = fopen($this->path, 'wb');
+        return $this->stream ?? $this->stream = fopen($this->path, 'ab+');
     }
 
     private function closeStream(): void

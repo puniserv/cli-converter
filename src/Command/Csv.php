@@ -15,6 +15,8 @@ class Csv extends Command
 {
     private const URL_PATH = 'URL_PATH';
     private const SAVE_PATH = 'SAVE_PATH';
+    const CSV_EXTENSION = 'csv';
+    public $extend = false;
     /** @var SimpleXmlToCsv */
     private $converter;
     /** @var HttpXmlProvider */
@@ -44,12 +46,15 @@ class Csv extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        try{
+        try {
             $content = $this->getData($input->getArgument(self::URL_PATH));
+            $savePath = $this->fixCsvPath($input->getArgument(self::SAVE_PATH));
+            if ($this->extend) {
+                $this->converter->setContentToExtend($savePath);
+            }
             $newContent = $this->converter->convert($content);
-            $savePath = $input->getArgument(self::SAVE_PATH);
             $newContent->saveToFile($savePath);
-        }catch(\Throwable $throwable){
+        } catch (\Throwable $throwable) {
             $output->write('Error: ' . $throwable->getMessage(), true);
             return 1;
         }
@@ -60,5 +65,13 @@ class Csv extends Command
     protected function getData(string $path): XmlContent
     {
         return $this->httpXmlProvider->setHttpPath($path)->get();
+    }
+
+    protected function fixCsvPath(string $path): string
+    {
+        if (pathinfo($path)['extension'] ?? null !== self::CSV_EXTENSION) {
+            $path = $path . '.' . self::CSV_EXTENSION;
+        }
+        return $path;
     }
 }

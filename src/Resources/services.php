@@ -37,6 +37,10 @@ return function (ContainerConfigurator $container) {
         ]);
     $services->set('CSVCommandSimple')
         ->class(Csv::class)
+        ->property(
+            'extend' /** @uses Csv::$extend */,
+            false
+        )
         ->args([
             'csv:simple',
             'Transform feed http link into csv file and overwrite existing file',
@@ -45,6 +49,10 @@ return function (ContainerConfigurator $container) {
         ]);
     $services->set('CSVCommandExtended')
         ->class(Csv::class)
+        ->property(
+            'extend' /** @uses Csv::$extend */,
+            true
+        )
         ->args([
             'csv:extended',
             'Transform feed http link into csv file and extend existing file',

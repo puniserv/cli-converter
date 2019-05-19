@@ -18,6 +18,8 @@ class SimpleXmlToCsv implements Converter
     public $modifiers = [];
     /*** @var Factory */
     private $contentFactory;
+    /** @var null|string */
+    private $contentToExtendPath;
 
     public function __construct(Factory $contentFactory)
     {
@@ -29,8 +31,7 @@ class SimpleXmlToCsv implements Converter
         if (!$content instanceof XmlContent) {
             throw new InvalidType($content::TYPE, XmlContent::TYPE);
         }
-        $csvContent = $this->contentFactory->createEmptyCsvContent();
-        $this->addTitleRow($csvContent);
+        $csvContent = $this->getContent();
         $this->addData($csvContent, $content);
         return $csvContent;
     }
@@ -76,5 +77,20 @@ class SimpleXmlToCsv implements Converter
             $rowData = $rowModifier->modify($rowData);
         }
         return $rowData;
+    }
+
+    public function setContentToExtend(string $contentToExtendPath): void
+    {
+        $this->contentToExtendPath = $contentToExtendPath;
+    }
+
+    private function getContent(): CsvContent
+    {
+        if($this->contentToExtendPath){
+            return $this->contentFactory->createCsvContentFromData($this->contentToExtendPath);
+        }
+        $csvContent = $this->contentFactory->createEmptyCsvContent();
+        $this->addTitleRow($csvContent);
+        return $csvContent;
     }
 }

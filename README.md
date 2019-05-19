@@ -1,5 +1,5 @@
 # ATOM Feed to CSV converter
-Line coverage: 94.55%
+
 Converter use symfony DI, symfony console application and GuzzleHTTP
 
 ### How to use

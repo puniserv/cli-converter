@@ -22,6 +22,10 @@ class AppTest extends TestCase
             $commandMock1,
             $commandMock2,
         ];
+        $app->config = [
+            'timezone' => 'Europe/Berlin',
+            'locale' => 'en_GB',
+        ];
         $symfonyAppMock->expects($this->atLeastOnce())
             ->method('add')
             ->with($commandMock1);

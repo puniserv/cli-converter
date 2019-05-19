@@ -9,7 +9,9 @@ use AdamDmitruczukRekrutacjaHRTec\Content\JsonContent;
 use AdamDmitruczukRekrutacjaHRTec\Content\XmlContent;
 use AdamDmitruczukRekrutacjaHRTec\Converters\Modifiers\RowModifier;
 use AdamDmitruczukRekrutacjaHRTec\Converters\SimpleXmlToCsv;
+use AdamDmitruczukRekrutacjaHRTec\Exception\FileNotFound;
 use AdamDmitruczukRekrutacjaHRTec\Exception\InvalidType;
+use AdamDmitruczukRekrutacjaHRTec\Parser\Xml;
 use PHPUnit\Framework\TestCase;
 
 class SimpleXmlToCsvTest extends TestCase
@@ -23,20 +25,21 @@ class SimpleXmlToCsvTest extends TestCase
         $instance->convert((new Factory())->createEmptyJsonContent());
     }
 
+    public function testExtendWithoutSource(): void
+    {
+        $factoryMock = new Factory();
+        $instance = new SimpleXmlToCsv($factoryMock);
+        $instance->setContentToExtend('invalid path');
+        $this->expectException(FileNotFound::class);
+        $this->expectExceptionMessage("File with path 'invalid path' not exists");
+        $instance->convert($this->geTestXmlContent());
+    }
+
+
     public function testConversion(): void
     {
         $factoryMock = new Factory();
-        $content = new XmlContent(simplexml_load_string(<<<XML
-<xml>
-    <testNode>
-        <test1Key>value1</test1Key>
-        <test2>value2</test2>
-        <test5><node>123</node></test5>
-        <test>value3</test>
-    </testNode>
-</xml>
-XML
-        ));
+        $content = $this->geTestXmlContent();
         $instance = new SimpleXmlToCsv($factoryMock);
         $rowModifier = $this->createMock(RowModifier::class);
         $instance->modifiers = [
@@ -60,5 +63,22 @@ XML
         $resultString = $resultContent->getRawStringValue();
         $this->assertStringContainsString('label1,label2,empty', $resultString);
         $this->assertStringContainsString('value1,value2,', $resultString);
+    }
+
+    private function geTestXmlContent(): XmlContent
+    {
+        $parser = new Xml();
+        $parser->parse(<<<XML
+<xml>
+    <testNode>
+        <test1Key>value1</test1Key>
+        <test2>value2</test2>
+        <test5><node>123</node></test5>
+        <test>value3</test>
+    </testNode>
+</xml>
+XML
+        );
+        return $parser->getContent();
     }
 }

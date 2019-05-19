@@ -44,7 +44,7 @@ class App
             date_default_timezone_set($this->config['timezone']);
         }
         if(isset($this->config['locale'])){
-            setlocale(LC_TIME, $this->config['locale']);
+            setlocale(LC_ALL, $this->config['locale']);
         }
     }
 }
