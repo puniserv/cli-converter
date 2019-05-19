@@ -4,26 +4,24 @@ Converter use symfony DI, symfony console application and GuzzleHTTP.
 Feed month in pubDate column will be translated by system to locale set in converter configuration.  
  
 
-### How to use
+### How to use (standalone)
 
 Transform feed http link into csv file and overwrite existing file
-> php bin/console.php csv:simple SOURCE_URL PATH_TO_SAVE
 
+```sh
+$ php src/console.php csv:simple SOURCE_URL PATH_TO_SAVE
+````
 Transform feed http link into csv file and extend existing file
-> php bin/console.php csv:extended SOURCE_URL PATH_TO_SAVE
+```sh
+$ php src/console.php csv:extended SOURCE_URL PATH_TO_SAVE
+```
 
 ### Installation
 PHP7.1 Required with libxml, simplexml, json extensions
 
-Standalone:
 ```sh
 $ git clone https://github.com/puniserv/cli-converter
 $ composer install
-```
-As dependence:
-
-```sh
-$ composer require puniserv/cli-converter
 ```
 
 ### Available test commands in composer
@@ -32,4 +30,15 @@ $ composer phpunit
 $ composer test
 $ composer testCoverageWithHtml
 $ composer testCoverage
+```
+
+
+# As dependence
+Install:
+```sh
+$ composer require puniserv/cli-converter
+```
+Use:
+```sh
+$ php vendor/bin/console.php ...
 ```
