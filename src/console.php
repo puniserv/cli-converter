@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 use AdamDmitruczukRekrutacjaHRTec\Common\Container;
 
-if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
-    require __DIR__ . '/../vendor/autoload.php';
-} elseif (file_exists(__DIR__ . '/../autoload.php')) {
-    require __DIR__ . '/../../../autoload.php';
+if (file_exists($fromSrcPath = __DIR__ . '/../vendor/autoload.php')) {
+    require $fromSrcPath;
+} elseif (file_exists($fromVendorBinPath = __DIR__ . '/../../../autoload.php')) {
+    require $fromVendorBinPath;
 } else {
     die('File autoload.php not exists');
 }
