@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace AdamDmitruczukRekrutacjaHRTec\Common;
 
+use AdamDmitruczukRekrutacjaHRTec\Exception\WarningException;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 
@@ -26,6 +27,7 @@ class App
     public function run(): void
     {
         $this->loadConfig();
+        $this->setErrorHandler();
         try{
             foreach($this->commands as $command){
                 $this->application->add($command);
@@ -46,5 +48,13 @@ class App
         if(isset($this->config['locale'])){
             setlocale(LC_ALL, $this->config['locale']);
         }
+    }
+
+    private function setErrorHandler(): void
+    {
+        set_error_handler(function ($error, $message, $file, $line)
+        {
+            throw new WarningException( $message, 0, $error, $file, $line );
+        }, E_WARNING);
     }
 }

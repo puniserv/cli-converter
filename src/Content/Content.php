@@ -4,6 +4,9 @@ declare(strict_types=1);
 namespace AdamDmitruczukRekrutacjaHRTec\Content;
 
 use AdamDmitruczukRekrutacjaHRTec\Exception\FileAlreadyExists;
+use AdamDmitruczukRekrutacjaHRTec\Exception\FileIsLocked;
+use AdamDmitruczukRekrutacjaHRTec\Exception\FileIsNotWritable;
+use AdamDmitruczukRekrutacjaHRTec\Exception\WarningException;
 
 abstract class Content
 {
@@ -22,11 +25,15 @@ abstract class Content
         $this->overwrite = false;
     }
 
-    public function saveToFile(string $path): bool
+    public function saveToFile(string $path): void
     {
         if(!$this->overwrite && file_exists($path)){
             throw new FileAlreadyExists($path);
         }
-        return file_put_contents($path, $this->getRawStringValue()) !== false;
+        try{
+            file_put_contents($path, $this->getRawStringValue());
+        }catch (\Throwable $warning){
+            throw new FileIsNotWritable($path);
+        }
     }
 }

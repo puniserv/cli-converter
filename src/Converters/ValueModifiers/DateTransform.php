@@ -8,7 +8,7 @@ class DateTransform extends Base
     public function modify(string $value): string
     {
         try {
-            return (new \DateTime($value))->format('d M Y H:i:s');
+            return strftime('%d %B %Y %H:%M:%S', (new \DateTime($value))->getTimestamp());
         } catch (\Throwable $throwable) {
             return $value;
         }

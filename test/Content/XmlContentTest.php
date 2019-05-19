@@ -3,10 +3,15 @@ declare(strict_types=1);
 
 namespace test\Content;
 
+use AdamDmitruczukRekrutacjaHRTec\Common\App;
+use AdamDmitruczukRekrutacjaHRTec\Common\Manager;
 use AdamDmitruczukRekrutacjaHRTec\Content\Factory;
 use AdamDmitruczukRekrutacjaHRTec\Exception\FileAlreadyExists;
+use AdamDmitruczukRekrutacjaHRTec\Exception\FileIsNotWritable;
+use AdamDmitruczukRekrutacjaHRTec\Exception\FileNotFound;
 use AdamDmitruczukRekrutacjaHRTec\Parser\Xml;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Console\Application;
 
 class XmlContentTest extends TestCase
 {
@@ -40,9 +45,28 @@ class XmlContentTest extends TestCase
         $content = (new Factory())->createEmptyXmlContent();
         $content->enableOverwrite();
         touch(self::TEST_CSV_FILE);
-        $this->assertTrue(
-            $content->saveToFile(self::TEST_CSV_FILE)
+        $fileContent = file_get_contents(self::TEST_CSV_FILE);
+        $content->saveToFile(self::TEST_CSV_FILE);
+        $this->assertNotSame(
+            $fileContent,
+            file_get_contents(self::TEST_CSV_FILE)
         );
+    }
+
+    public function testSavingWithError(): void
+    {
+        $app = new App($this->createMock(Application::class), $this->createMock(Manager::class));
+        $app->run();
+        $this->clearTestFile();
+        touch(self::TEST_CSV_FILE);
+        $file = fopen(self::TEST_CSV_FILE, 'ab');
+        flock($file, LOCK_EX);
+        $this->expectException(FileIsNotWritable::class);
+        $this->expectExceptionMessage("File with path '" . self::TEST_CSV_FILE . "' is not writable. " .
+            'Check if you have write access to this file or if another program does not use this file');
+        $content = (new Factory())->createEmptyXmlContent();
+        $content->enableOverwrite();
+        $content->saveToFile(self::TEST_CSV_FILE);
     }
 
     private function clearTestFile(): void

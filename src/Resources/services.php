@@ -29,7 +29,10 @@ return function (ContainerConfigurator $container) {
         ])
         ->property('config'/** @uses App::$config */, [
             'timezone' => 'Europe/Warsaw',
-            'locale' => 'pl_PL',
+            'locale' => [
+                'pl_PL',
+                'pl',
+            ],
         ])
         ->property('commands'/** @uses App::$commands */, [
             ref('CSVCommandSimple'),
