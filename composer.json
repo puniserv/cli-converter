@@ -1,33 +1,34 @@
 {
-    "name": "puniserv/cli-converter",
-    "description": "PHP CLI converter",
-    "type": "library",
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": {
-            "AdamDmitruczukRekrutacjaHRTec\\": "src",
-            "test\\": "test"
-        }
-    },
-    "require-dev": {
-        "roave/security-advisories": "dev-master",
-        "phpunit/phpunit": "7.5.9"
-    },
-    "require": {
-        "php": "^7.1",
-        "symfony/console": "^4.2",
-        "symfony/process": "^4.2",
-        "ext-simplexml": "*",
-        "ext-json": "*",
-        "ext-libxml": "*",
-        "guzzlehttp/guzzle": "^6.3@dev",
-        "symfony/dependency-injection": "^4.4@dev",
-        "symfony/config": "^4.4@dev"
-    },
-    "scripts": {
-        "test": "phpunit test",
-        "phpunit": "phpunit test",
-        "testCoverageWithHtml": "phpunit test --coverage-html coverage --whitelist src",
-        "testCoverage": "phpunit test --coverage-text --whitelist src"
+  "name": "puniserv/cli-converter",
+  "description": "PHP CLI converter",
+  "type": "library",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "AdamDmitruczukRekrutacjaHRTec\\": "src",
+      "test\\": "test"
     }
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "phpunit/phpunit": "7.5.9"
+  },
+  "require": {
+    "php": "^7.1",
+    "symfony/console": "^4.2",
+    "symfony/process": "^4.2",
+    "ext-simplexml": "*",
+    "ext-json": "*",
+    "ext-libxml": "*",
+    "guzzlehttp/guzzle": "^6.3@dev",
+    "symfony/dependency-injection": "^4.4@dev",
+    "symfony/config": "^4.4@dev"
+  },
+  "scripts": {
+    "test": "phpunit test",
+    "phpunit": "phpunit test",
+    "testCoverageWithHtml": "phpunit test --coverage-html coverage --whitelist src",
+    "testCoverage": "phpunit test --coverage-text --whitelist src"
+  }
 }
