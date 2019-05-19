@@ -16,14 +16,14 @@
   },
   "require": {
     "php": "^7.1",
-    "symfony/console": "^4.2",
-    "symfony/process": "^4.2",
     "ext-simplexml": "*",
     "ext-json": "*",
     "ext-libxml": "*",
-    "guzzlehttp/guzzle": "^6.3@dev",
-    "symfony/dependency-injection": "^4.4@dev",
-    "symfony/config": "^4.4@dev"
+    "symfony/console": "4.2.8",
+    "symfony/process": "4.2.8",
+    "guzzlehttp/guzzle": "6.3.3",
+    "symfony/dependency-injection": "4.2.8",
+    "symfony/config": "4.2.8"
   },
   "scripts": {
     "test": "phpunit test",
