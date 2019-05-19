@@ -15,11 +15,12 @@ Transform feed http link into csv file and extend existing file
 ### Installation
 PHP7.1 Required with libxml, simplexml, json extensions
 
-Standalone use:
+Standalone:
 ```sh
 $ git clone https://github.com/puniserv/cli-converter
+$ composer install
 ```
-As a dependency:
+As dependence:
 
 ```sh
 $ composer require puniserv/cli-converter

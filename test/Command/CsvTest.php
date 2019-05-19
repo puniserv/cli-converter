@@ -15,9 +15,19 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class CsvTest extends TestCase
 {
-    public function testSuccessCommandWithExtend(): void
+    public function testSuccessCommandWithExtendAndPathWithoutCsv(): void
     {
-        $this->prepareSuccessTest(function (Csv $command, MockObject $converter) {
+        $this->prepareSuccessTest('someWebSite.local somePath', function (Csv $command, MockObject $converter) {
+            $command->extend = true;
+            $converter->expects($this->once())->method(
+                'setContentToExtend'/** @uses SimpleXmlToCsv::setContentToExtend() */
+            )->with('somePath.csv');
+        });
+    }
+
+    public function testSuccessCommandWithExtendAndPathWithCsv(): void
+    {
+        $this->prepareSuccessTest('someWebSite.local somePath.csv', function (Csv $command, MockObject $converter) {
             $command->extend = true;
             $converter->expects($this->once())->method(
                 'setContentToExtend'/** @uses SimpleXmlToCsv::setContentToExtend() */
@@ -27,7 +37,7 @@ class CsvTest extends TestCase
 
     public function testSuccessCommandWithoutExtend(): void
     {
-        $this->prepareSuccessTest(function (Csv $command, MockObject $converter) {
+        $this->prepareSuccessTest('someWebSite.local somePath', function (Csv $command, MockObject $converter) {
             $command->extend = false;
             $converter->expects($this->never())->method(
                 'setContentToExtend'/** @uses SimpleXmlToCsv::setContentToExtend() */
@@ -49,13 +59,13 @@ class CsvTest extends TestCase
         $this->assertSame(1, $result);
     }
 
-    private function prepareSuccessTest(\Closure $closure): void
+    private function prepareSuccessTest(string $inputString, \Closure $closure): void
     {
         $converter = $this->createMock(SimpleXmlToCsv::class);
         $http = $this->createMock(HttpXmlProvider::class);
         $command = $this->getCsvCommandInstance($converter, $http);
         $this->checkNameAndDescription($command);
-        $input = new StringInput('someWebSite.local somePath');
+        $input = new StringInput($inputString);
         $output = $this->createMock(OutputInterface::class);
         $contentMock = $this->createMock(XmlContent::class);
         $converter->expects($this->once())->method(

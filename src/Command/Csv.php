@@ -69,7 +69,7 @@ class Csv extends Command
 
     protected function fixCsvPath(string $path): string
     {
-        if (pathinfo($path)['extension'] ?? null !== self::CSV_EXTENSION) {
+        if ((pathinfo($path)['extension'] ?? null) !== self::CSV_EXTENSION) {
             $path = $path . '.' . self::CSV_EXTENSION;
         }
         return $path;
