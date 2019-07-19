@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace test\Common;
 
-use AdamDmitruczukRekrutacjaHRTec\Common\Container;
+use Src\Common\Container;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\FileLocatorInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

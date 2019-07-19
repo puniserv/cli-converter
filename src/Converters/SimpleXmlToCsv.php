@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Converters;
+namespace Src\Converters;
 
-use AdamDmitruczukRekrutacjaHRTec\Content\Content;
-use AdamDmitruczukRekrutacjaHRTec\Content\CsvContent;
-use AdamDmitruczukRekrutacjaHRTec\Content\Factory;
-use AdamDmitruczukRekrutacjaHRTec\Converters\Modifiers\RowModifier;
-use AdamDmitruczukRekrutacjaHRTec\Exception\InvalidType;
-use AdamDmitruczukRekrutacjaHRTec\Content\XmlContent;
+use Src\Content\Content;
+use Src\Content\CsvContent;
+use Src\Content\Factory;
+use Src\Converters\Modifiers\RowModifier;
+use Src\Exception\InvalidType;
+use Src\Content\XmlContent;
 
 class SimpleXmlToCsv implements Converter
 {

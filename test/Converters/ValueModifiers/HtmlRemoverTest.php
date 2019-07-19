@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace test\Converters\ValueModifiers;
 
-use AdamDmitruczukRekrutacjaHRTec\Converters\ValueModifiers\HtmlRemover;
+use Src\Converters\ValueModifiers\HtmlRemover;
 use PHPUnit\Framework\TestCase;
 
 final class HtmlRemoverTest extends TestCase

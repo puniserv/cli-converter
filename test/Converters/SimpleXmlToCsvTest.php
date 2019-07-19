@@ -3,15 +3,15 @@ declare(strict_types=1);
 
 namespace test\Converters;
 
-use AdamDmitruczukRekrutacjaHRTec\Content\CsvContent;
-use AdamDmitruczukRekrutacjaHRTec\Content\Factory;
-use AdamDmitruczukRekrutacjaHRTec\Content\JsonContent;
-use AdamDmitruczukRekrutacjaHRTec\Content\XmlContent;
-use AdamDmitruczukRekrutacjaHRTec\Converters\Modifiers\RowModifier;
-use AdamDmitruczukRekrutacjaHRTec\Converters\SimpleXmlToCsv;
-use AdamDmitruczukRekrutacjaHRTec\Exception\FileNotFound;
-use AdamDmitruczukRekrutacjaHRTec\Exception\InvalidType;
-use AdamDmitruczukRekrutacjaHRTec\Parser\Xml;
+use Src\Content\CsvContent;
+use Src\Content\Factory;
+use Src\Content\JsonContent;
+use Src\Content\XmlContent;
+use Src\Converters\Modifiers\RowModifier;
+use Src\Converters\SimpleXmlToCsv;
+use Src\Exception\FileNotFound;
+use Src\Exception\InvalidType;
+use Src\Parser\Xml;
 use PHPUnit\Framework\TestCase;
 
 class SimpleXmlToCsvTest extends TestCase

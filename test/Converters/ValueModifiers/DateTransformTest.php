@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace test\Converters\ValueModifiers;
 
-use AdamDmitruczukRekrutacjaHRTec\Converters\ValueModifiers\DateTransform;
+use Src\Converters\ValueModifiers\DateTransform;
 use PHPUnit\Framework\TestCase;
 
 class DateTransformTest extends TestCase

@@ -3,13 +3,13 @@ declare(strict_types=1);
 
 namespace test\Content;
 
-use AdamDmitruczukRekrutacjaHRTec\Common\App;
-use AdamDmitruczukRekrutacjaHRTec\Common\Manager;
-use AdamDmitruczukRekrutacjaHRTec\Content\Factory;
-use AdamDmitruczukRekrutacjaHRTec\Exception\FileAlreadyExists;
-use AdamDmitruczukRekrutacjaHRTec\Exception\FileIsNotWritable;
-use AdamDmitruczukRekrutacjaHRTec\Exception\FileNotFound;
-use AdamDmitruczukRekrutacjaHRTec\Parser\Xml;
+use Src\Common\App;
+use Src\Common\Manager;
+use Src\Content\Factory;
+use Src\Exception\FileAlreadyExists;
+use Src\Exception\FileIsNotWritable;
+use Src\Exception\FileNotFound;
+use Src\Parser\Xml;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
 

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use AdamDmitruczukRekrutacjaHRTec\Common\Container;
+use Src\Common\Container;
 
 if (file_exists($fromSrcPath = __DIR__ . '/../vendor/autoload.php')) {
     require $fromSrcPath;

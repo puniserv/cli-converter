@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Converters;
+namespace Src\Converters;
 
-use AdamDmitruczukRekrutacjaHRTec\Content\Content;
+use Src\Content\Content;
 
 interface Converter
 {

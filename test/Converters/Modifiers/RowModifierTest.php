@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace test\Converters\Modifiers;
 
-use AdamDmitruczukRekrutacjaHRTec\Converters\Modifiers\RowModifier;
-use AdamDmitruczukRekrutacjaHRTec\Converters\ValueModifiers\HtmlRemover;
+use Src\Converters\Modifiers\RowModifier;
+use Src\Converters\ValueModifiers\HtmlRemover;
 use PHPUnit\Framework\TestCase;
 
 class RowModifierTest extends TestCase

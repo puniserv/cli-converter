@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Common;
+namespace Src\Common;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

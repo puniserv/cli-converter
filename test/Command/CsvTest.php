@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace test\Command;
 
-use AdamDmitruczukRekrutacjaHRTec\Command\Csv;
-use AdamDmitruczukRekrutacjaHRTec\Content\Provider\HttpXmlProvider;
-use AdamDmitruczukRekrutacjaHRTec\Content\XmlContent;
-use AdamDmitruczukRekrutacjaHRTec\Converters\SimpleXmlToCsv;
+use Src\Command\Csv;
+use Src\Content\Provider\HttpXmlProvider;
+use Src\Content\XmlContent;
+use Src\Converters\SimpleXmlToCsv;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Input\InputInterface;

@@ -1,16 +1,16 @@
 <?php
 declare(strict_types=1);
 
-use AdamDmitruczukRekrutacjaHRTec\Command\Csv;
-use AdamDmitruczukRekrutacjaHRTec\Common\App;
-use AdamDmitruczukRekrutacjaHRTec\Common\Manager;
-use AdamDmitruczukRekrutacjaHRTec\Content\Factory;
-use AdamDmitruczukRekrutacjaHRTec\Content\Provider\HttpXmlProvider;
-use AdamDmitruczukRekrutacjaHRTec\Converters\Modifiers\RowModifier;
-use AdamDmitruczukRekrutacjaHRTec\Converters\SimpleXmlToCsv;
-use AdamDmitruczukRekrutacjaHRTec\Converters\ValueModifiers\DateTransform;
-use AdamDmitruczukRekrutacjaHRTec\Converters\ValueModifiers\HtmlRemover;
-use AdamDmitruczukRekrutacjaHRTec\Converters\ValueModifiers\LinkRemover;
+use Src\Command\Csv;
+use Src\Common\App;
+use Src\Common\Manager;
+use Src\Content\Factory;
+use Src\Content\Provider\HttpXmlProvider;
+use Src\Converters\Modifiers\RowModifier;
+use Src\Converters\SimpleXmlToCsv;
+use Src\Converters\ValueModifiers\DateTransform;
+use Src\Converters\ValueModifiers\HtmlRemover;
+use Src\Converters\ValueModifiers\LinkRemover;
 use Symfony\Component\Console\Application;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use function Symfony\Component\DependencyInjection\Loader\Configurator\ref;

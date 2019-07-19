@@ -31,14 +31,3 @@ $ composer test
 $ composer testCoverageWithHtml
 $ composer testCoverage
 ```
-
-
-# As dependence
-Install:
-```sh
-$ composer require puniserv/cli-converter
-```
-Use:
-```sh
-$ php vendor/bin/console.php ...
-```

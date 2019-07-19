@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace test\Parser;
 
-use AdamDmitruczukRekrutacjaHRTec\Exception\DataNotParsed;
-use AdamDmitruczukRekrutacjaHRTec\Parser\Json;
-use AdamDmitruczukRekrutacjaHRTec\Parser\Xml;
+use Src\Exception\DataNotParsed;
+use Src\Parser\Json;
+use Src\Parser\Xml;
 use PHPUnit\Framework\TestCase;
 
 class JsonTest extends TestCase

@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace test\Common;
 
-use AdamDmitruczukRekrutacjaHRTec\Common\App;
-use AdamDmitruczukRekrutacjaHRTec\Common\Manager;
+use Src\Common\App;
+use Src\Common\Manager;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Content;
+namespace Src\Content;
 
-use AdamDmitruczukRekrutacjaHRTec\Exception\FileAlreadyExists;
-use AdamDmitruczukRekrutacjaHRTec\Exception\FileIsNotWritable;
+use Src\Exception\FileAlreadyExists;
+use Src\Exception\FileIsNotWritable;
 
 abstract class Content
 {

@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace test\Content\Provider;
 
-use AdamDmitruczukRekrutacjaHRTec\Content\Provider\HttpXmlProvider;
-use AdamDmitruczukRekrutacjaHRTec\Exception\ContentParseError;
-use AdamDmitruczukRekrutacjaHRTec\Exception\MissingParameter;
-use AdamDmitruczukRekrutacjaHRTec\Exception\ServerConnectionFail;
+use Src\Content\Provider\HttpXmlProvider;
+use Src\Exception\ContentParseError;
+use Src\Exception\MissingParameter;
+use Src\Exception\ServerConnectionFail;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Request;

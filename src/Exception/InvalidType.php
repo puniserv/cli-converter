@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Exception;
+namespace Src\Exception;
 
 class InvalidType extends \Exception
 {

@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Command;
+namespace Src\Command;
 
-use AdamDmitruczukRekrutacjaHRTec\Content\Provider\HttpXmlProvider;
-use AdamDmitruczukRekrutacjaHRTec\Content\XmlContent;
-use AdamDmitruczukRekrutacjaHRTec\Converters\SimpleXmlToCsv;
+use Src\Content\Provider\HttpXmlProvider;
+use Src\Content\XmlContent;
+use Src\Converters\SimpleXmlToCsv;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Parser;
+namespace Src\Parser;
 
-use AdamDmitruczukRekrutacjaHRTec\Content\Content;
-use AdamDmitruczukRekrutacjaHRTec\Content\XmlContent;
-use AdamDmitruczukRekrutacjaHRTec\Exception\DataNotParsed;
+use Src\Content\Content;
+use Src\Content\XmlContent;
+use Src\Exception\DataNotParsed;
 
 class Xml implements Parser
 {

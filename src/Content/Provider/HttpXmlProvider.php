@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Content\Provider;
+namespace Src\Content\Provider;
 
-use AdamDmitruczukRekrutacjaHRTec\Exception\ContentParseError;
-use AdamDmitruczukRekrutacjaHRTec\Exception\MissingParameter;
-use AdamDmitruczukRekrutacjaHRTec\Content\XmlContent;
-use AdamDmitruczukRekrutacjaHRTec\Exception\ServerConnectionFail;
-use AdamDmitruczukRekrutacjaHRTec\Parser\Xml;
+use Src\Exception\ContentParseError;
+use Src\Exception\MissingParameter;
+use Src\Content\XmlContent;
+use Src\Exception\ServerConnectionFail;
+use Src\Parser\Xml;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 

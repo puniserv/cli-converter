@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Converters\Modifiers;
+namespace Src\Converters\Modifiers;
 
-use AdamDmitruczukRekrutacjaHRTec\Converters\ValueModifiers\Base;
+use Src\Converters\ValueModifiers\Base;
 
 class RowModifier
 {

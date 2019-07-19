@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Common;
+namespace Src\Common;
 
-use AdamDmitruczukRekrutacjaHRTec\Exception\WarningException;
+use Src\Exception\WarningException;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 
@@ -28,13 +28,13 @@ class App
     {
         $this->loadConfig();
         $this->setErrorHandler();
-        try{
-            foreach($this->commands as $command){
+        try {
+            foreach ($this->commands as $command) {
                 $this->application->add($command);
             }
             $this->application->run();
             $this->manager->endWithSuccess();
-        }catch (\Throwable $throwable){
+        } catch (\Throwable $throwable) {
             echo $throwable->getMessage();
             $this->manager->endWithError();
         }
@@ -42,19 +42,20 @@ class App
 
     private function loadConfig(): void
     {
-        if(isset($this->config['timezone'])){
-            date_default_timezone_set($this->config['timezone']);
+        $timezone = $this->config['timezone'] ?? null;
+        if ($timezone !== null) {
+            date_default_timezone_set($timezone);
+            ini_set('date.timezone', $timezone);
         }
-        if(isset($this->config['locale'])){
+        if (isset($this->config['locale'])) {
             setlocale(LC_ALL, $this->config['locale']);
         }
     }
 
     private function setErrorHandler(): void
     {
-        set_error_handler(function ($error, $message, $file, $line)
-        {
-            throw new WarningException( $message, 0, $error, $file, $line );
+        set_error_handler(static function ($error, $message, $file, $line) {
+            throw new WarningException($message, 0, $error, $file, $line);
         }, E_WARNING);
     }
 }

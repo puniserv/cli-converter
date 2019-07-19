@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace test\Parser;
 
-use AdamDmitruczukRekrutacjaHRTec\Exception\DataNotParsed;
-use AdamDmitruczukRekrutacjaHRTec\Parser\Xml;
+use Src\Exception\DataNotParsed;
+use Src\Parser\Xml;
 use PHPUnit\Framework\TestCase;
 
 class XmlTest extends TestCase

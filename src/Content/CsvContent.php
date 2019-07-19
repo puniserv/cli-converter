@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Content;
+namespace Src\Content;
 
-use AdamDmitruczukRekrutacjaHRTec\Exception\FileNotFound;
+use Src\Exception\FileNotFound;
 
 class CsvContent extends Content
 {

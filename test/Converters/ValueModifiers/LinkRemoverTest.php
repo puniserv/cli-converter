@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace test\Converters\ValueModifiers;
 
-use AdamDmitruczukRekrutacjaHRTec\Converters\ValueModifiers\LinkRemover;
+use Src\Converters\ValueModifiers\LinkRemover;
 use PHPUnit\Framework\TestCase;
 
 class LinkRemoverTest extends TestCase

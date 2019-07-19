@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace test\Content;
 
-use AdamDmitruczukRekrutacjaHRTec\Content\Factory;
-use AdamDmitruczukRekrutacjaHRTec\Exception\FileNotFound;
+use Src\Content\Factory;
+use Src\Exception\FileNotFound;
 use PHPUnit\Framework\TestCase;
 
 class CsvContentTest extends TestCase

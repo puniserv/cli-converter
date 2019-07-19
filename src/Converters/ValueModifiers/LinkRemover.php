@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Converters\ValueModifiers;
+namespace Src\Converters\ValueModifiers;
 
 class LinkRemover extends Base
 {

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace AdamDmitruczukRekrutacjaHRTec\Content;
+namespace Src\Content;
 
 class Factory
 {
